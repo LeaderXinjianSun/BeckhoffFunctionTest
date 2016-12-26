@@ -26,72 +26,6 @@
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <Canvas Grid.ColumnSpan="2" Margin="10">
-                <Border Canvas.Left="0" Canvas.Top="0" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="110" Canvas.Top="0" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="220" Canvas.Top="0" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="330" Canvas.Top="0" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="440" Canvas.Top="0" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-
-                <Border Canvas.Left="0" Canvas.Top="130" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="110" Canvas.Top="130" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="220" Canvas.Top="130" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="330" Canvas.Top="130" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="440" Canvas.Top="130" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-
-                <Border Canvas.Left="0" Canvas.Top="260" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="110" Canvas.Top="260" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="220" Canvas.Top="260" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="330" Canvas.Top="260" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="440" Canvas.Top="260" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-
-                <Border Canvas.Left="0" Canvas.Top="390" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="110" Canvas.Top="390" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="220" Canvas.Top="390" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="330" Canvas.Top="390" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-                <Border Canvas.Left="440" Canvas.Top="390" BorderThickness="2" BorderBrush="LightBlue">
-                    <local:SteelTestUnitControl Width="100" SelectedItemNum ="{Binding SelectedItemNum}"></local:SteelTestUnitControl>
-                </Border>
-
-            </Canvas>
             
         </Grid>
         <Grid Grid.Row="1">
@@ -100,12 +34,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <sxj:MessagePrintControl MsgText="{Binding Msg}"></sxj:MessagePrintControl>
-            <!--<Grid Grid.Column="1">
-                <StackPanel Orientation="Horizontal">
-                    <local:SteelTestUnitControl Width="100" ResultNum="{Binding RsN}" SelectedItemNum="{Binding SIN}"></local:SteelTestUnitControl>
-                    <Button Command="{mvvm:ActionAuto Test}">测试</Button>
-                </StackPanel>
-            </Grid>-->
+
         </Grid>
 
     </Grid>
