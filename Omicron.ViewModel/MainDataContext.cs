@@ -9,6 +9,7 @@ using System.ComponentModel.Composition;
 using SxjLibrary;
 using System.Windows;
 using System.Collections.ObjectModel;
+using Omicron.Model;
 
 
 namespace Omicron.ViewModel
@@ -19,37 +20,54 @@ namespace Omicron.ViewModel
         public virtual string AboutPageVisibility { set; get; } = "Collapsed";
         public virtual string HomePageVisibility { set; get; } = "Visible";
         public virtual string Msg { set; get; } = "";
-        public virtual string[] MatraxStyles { set; get; } = new string[3] { "3×3", "4×3", "5×3" };
-        public virtual int MatraxStylesIndex { set; get; } = 0;
-        public virtual int RsN { set; get; } = -1;
-        public virtual int SelectedItemNum { set; get; } = -1;
+        public virtual TwinCATCoil1 Home_Start { set; get; }
+        public virtual TwinCATCoil1 Home_Finish { set; get; }
+        public virtual bool Home_Finish_Value { set; get; } = false;
         private MessagePrint messagePrint = new MessagePrint();
         private dialog mydialog = new dialog();
+        TwinCATAds _TwinCATAds = new TwinCATAds();
+        #region 构造函数
+        public MainDataContext()
+        {
+            Home_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            Home_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            UIUpdate();
+            Console.WriteLine("123");
+        }
+        #endregion
+        #region UI更新
+        public async void UIUpdate()
+        {
+            while (true)
+            {
+                Task taskFunc = Task.Run(() =>
+                {
+                    Home_Finish_Value = true;
+                });
+                
+                await Task.Delay(100);
+                await taskFunc;
+            }
+        }
+        #endregion
         public void ChoseHomePage()
         {
             AboutPageVisibility = "Collapsed";
             HomePageVisibility = "Visible";
-            Msg = messagePrint.AddMessage("111");
+            //Msg = messagePrint.AddMessage("111");
+            
         }
         public void ChoseAboutPage()
         {
             AboutPageVisibility = "Visible";
             HomePageVisibility = "Collapsed";
         }
-        public void Test()
+        public void StartHomeAction()
         {
-            RsN++;
-            if (RsN > 2)
-            {
-                RsN = 0;
-            }
+            Home_Start.Value = true;
         }
-        [Initialize]
-        public void Init()
-        {
-            SelectedItemNum = 3;
-            RsN = 3;
-        }
+
+
         [Export(MEF.Contracts.ActionMessage)]
         [ExportMetadata(MEF.Key, "winclose")]
         public async void WindowClose()

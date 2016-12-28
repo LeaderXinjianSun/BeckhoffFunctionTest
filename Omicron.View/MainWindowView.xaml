@@ -37,7 +37,7 @@
         
         <StatusBar Grid.Row="3">
             <StatusBarItem>
-                <TextBlock>下位机</TextBlock>
+                <TextBlock>回原点完成</TextBlock>
             </StatusBarItem>
             <StatusBarItem>
                 <Ellipse Style="{StaticResource PLCConnectStatus}"></Ellipse>
