@@ -35,7 +35,7 @@ namespace Omicron.ViewModel
             Home_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
             FuncNum = new TwinCATCoil1(new TwinCATCoil("MAIN.FuncNum", typeof(short), TwinCATCoil.Mode.Notice), _TwinCATAds);
             _TwinCATAds.StartNotice();
-            UIUpdate();
+            //UIUpdate();
             
         }
         #endregion

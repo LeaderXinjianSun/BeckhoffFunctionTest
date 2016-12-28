@@ -3,11 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel;
 
-namespace Omicron.Model
+namespace Omicron.Model 
 {
-    public class TwinCATCoil1
+    public class TwinCATCoil1 : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChangedEventHandler handler = PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+
         private TwinCATCoil _TwinCATCoil;
         readonly TwinCATAds _TwinCATAds;
         public event EventHandler CoilChanged;
@@ -25,7 +37,7 @@ namespace Omicron.Model
         private void _TwinCATCoil_CoilChanged(object sender, EventArgs e)
         {
             // setProperty("TwinCATCoilViewModel",Value);
-            //this.NotifyPropertyChanged("Value");
+            this.NotifyPropertyChanged("Value");
             if (CoilChanged != null)
                 CoilChanged(this, null);
         }
