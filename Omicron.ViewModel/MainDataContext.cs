@@ -22,7 +22,9 @@ namespace Omicron.ViewModel
         public virtual string Msg { set; get; } = "";
         public virtual TwinCATCoil1 Home_Start { set; get; }
         public virtual TwinCATCoil1 Home_Finish { set; get; }
+        public virtual TwinCATCoil1 AxisState { set; get; }
         public virtual bool Home_Finish_Value { set; get; } = false;
+        public virtual Int32 AxisState_ { set; get; }
         private MessagePrint messagePrint = new MessagePrint();
         private dialog mydialog = new dialog();
         TwinCATAds _TwinCATAds = new TwinCATAds();
@@ -31,6 +33,7 @@ namespace Omicron.ViewModel
         {
             Home_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
             Home_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            AxisState = new TwinCATCoil1(new TwinCATCoil("MAIN.AxisState", typeof(Int32), TwinCATCoil.Mode.Notice), _TwinCATAds);
             UIUpdate();
             Console.WriteLine("123");
         }
@@ -43,6 +46,7 @@ namespace Omicron.ViewModel
                 Task taskFunc = Task.Run(() =>
                 {
                     Home_Finish_Value = true;
+                    AxisState_ = 3;
                 });
                 
                 await Task.Delay(100);

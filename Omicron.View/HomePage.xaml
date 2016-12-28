@@ -27,7 +27,8 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="2" Orientation="Vertical">
-                <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding AxisState_}"></Label>
                     <Button Width="80" Height="40" Margin="5" Content="回原点" Command="{mvvm:ActionAuto StartHomeAction}"></Button>
                 </StackPanel>
             </StackPanel>
