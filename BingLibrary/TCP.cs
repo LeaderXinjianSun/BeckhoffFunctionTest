@@ -55,7 +55,7 @@ namespace BingLibrary.hjb
             string tempS = "error";
             await ((Func<Task>)(() =>
             {
-                return Task.Run(() =>
+                return Task.Run(async () =>
                 {
                     try
                     {
@@ -64,8 +64,8 @@ namespace BingLibrary.hjb
                         string responseData = string.Empty;
                         stream = client.GetStream();
                         stream.ReadTimeout = 200;
-                        Int32 bytes = stream.Read(data, 0, data.Length);
-                        // Int32 bytes = await stream.ReadAsync(data, 0, data.Length);
+                        //Int32 bytes = stream.Read(data, 0, data.Length);
+                        Int32 bytes = await stream.ReadAsync(data, 0, data.Length);
                         tempS = Encoding.ASCII.GetString(data, 0, bytes);
                         return tempS;
                     }

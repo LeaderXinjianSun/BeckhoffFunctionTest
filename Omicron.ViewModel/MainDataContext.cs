@@ -34,6 +34,8 @@ namespace Omicron.ViewModel
         private MessagePrint messagePrint = new MessagePrint();
         private dialog mydialog = new dialog();
         TwinCATAds _TwinCATAds = new TwinCATAds();
+        string ip = "192.168.100.228";
+        TcpIpClient tcpIpClient = new TcpIpClient();
         #region 构造函数
         public MainDataContext()
         {
@@ -48,7 +50,9 @@ namespace Omicron.ViewModel
             Move_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
             _TwinCATAds.StartNotice();
             //UIUpdate();
-            
+            WaitNet();
+            CommandFromRemote();
+
         }
         #endregion
         #region UI更新
@@ -67,12 +71,36 @@ namespace Omicron.ViewModel
             }
         }
         #endregion
+        private async void WaitNet()
+        {
+            var b = await tcpIpClient.Connect(ip,2001);
+            if (b)
+            {
+                Msg = messagePrint.AddMessage("已连接服务器");
+            }
+            else
+            {
+                Msg = messagePrint.AddMessage("连接服务器超时");
+            }
+        }
+        private async void CommandFromRemote()
+        {
+            while (true)
+            {
+                if (tcpIpClient.tcpConnected)
+                {
+                    var s = await tcpIpClient.ReceiveAsync();
+                    string[] ss = s.Split(new string[] { "\r\n" }, StringSplitOptions.RemoveEmptyEntries);
+                    Msg = messagePrint.AddMessage("接收到命令 " + ss[0]);
+                    FuncNum.Value = short.Parse(ss[0]);
+                }
+            }
+        }
         public void ChoseHomePage()
         {
             AboutPageVisibility = "Collapsed";
             HomePageVisibility = "Visible";
-            //Msg = messagePrint.AddMessage("111");
-            
+            //Msg = messagePrint.AddMessage("111");          
         }
         public void ChoseAboutPage()
         {
