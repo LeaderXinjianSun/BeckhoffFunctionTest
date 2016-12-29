@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>F:\sxj\BeckhoffFunctionTest\Beckhoff\20161227.pro</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2016-12-28T16:41:14</ChangeDate>
+		<ChangeDate>2016-12-29T09:09:39</ChangeDate>
 		<Library>
 			<Name>TcBase.lib</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBase.lib</Path>
@@ -10495,7 +10495,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="1011823E" Crc32="1734777960" LastChange="2016-12-28T16:41:14">MAIN</Name>
+			<Name Decoration="101287A8" Crc32="2175532654" LastChange="2016-12-29T09:09:39">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>494</CodeIndex>
 				<Symbol>
@@ -10545,6 +10545,9 @@
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.AxisState</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.BeckhoffConnect</Name>
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.Position_x</Name>
@@ -10672,6 +10675,13 @@
 			<IGroup>16448</IGroup>
 			<IOffset>4548</IOffset>
 			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name>MAIN.BeckhoffConnect</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4552</IOffset>
+			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Persistent="1" TaskPrio="1">MAIN.Position_x</Name>
