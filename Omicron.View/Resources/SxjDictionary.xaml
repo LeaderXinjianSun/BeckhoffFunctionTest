@@ -6,6 +6,36 @@
         <Setter Property="Width" Value="20"></Setter>
         <Setter Property="Height" Value="20"></Setter>
     </Style>
+    <Style TargetType="Ellipse" BasedOn="{StaticResource EllipseStatusBase}" x:Key="ServoAlarmStatus">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Axis1_Error.Value}" Value="true">
+                <Setter Property="Fill" Value="Red"></Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Axis1_Error.Value}" Value="false">
+                <Setter Property="Fill" Value="Gray"></Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Ellipse" BasedOn="{StaticResource EllipseStatusBase}" x:Key="ServoHomeFinish">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Home_Finish.Value}" Value="true">
+                <Setter Property="Fill" Value="Green"></Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Home_Finish.Value}" Value="false">
+                <Setter Property="Fill" Value="Gray"></Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+    <Style TargetType="Ellipse" BasedOn="{StaticResource EllipseStatusBase}" x:Key="ServoMoveFinish">
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Move_Finish.Value}" Value="true">
+                <Setter Property="Fill" Value="Green"></Setter>
+            </DataTrigger>
+            <DataTrigger Binding="{Binding Move_Finish.Value}" Value="false">
+                <Setter Property="Fill" Value="Gray"></Setter>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
     <Style TargetType="Ellipse" BasedOn="{StaticResource EllipseStatusBase}" x:Key="PLCConnectStatus">
         <Style.Triggers>
             <DataTrigger Binding="{Binding BeckhoffConnect.Value}" Value="true">

@@ -28,8 +28,20 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="2" Orientation="Vertical">
                 <StackPanel Orientation="Horizontal">
-                    <Label Width="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="{Binding FuncNum.Value}"></Label>
-                    <Button Width="80" Height="40" Margin="5" Content="回原点" Command="{mvvm:ActionAuto StartHomeAction}"></Button>
+                    <Label Width="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="伺服报警"></Label>
+                    <Ellipse Style="{StaticResource ServoAlarmStatus}"></Ellipse>
+                    <Button Width="80" Height="40" Margin="5" FontSize="18" Content="复位" Command="{mvvm:ActionAuto ResetAction}"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="回原点"></Label>
+                    <Ellipse Style="{StaticResource ServoHomeFinish}"></Ellipse>
+                    <Button Width="80" Height="40" Margin="5" FontSize="18" Content="回原点" Command="{mvvm:ActionAuto StartHomeAction}"></Button>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label Width="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="定位"></Label>
+                    <Ellipse Style="{StaticResource ServoMoveFinish}"></Ellipse>
+                    <ComboBox Width="100" ItemsSource="{Binding PositionComboBox}" SelectedIndex="{Binding PositionComboBoxSelectedIndex}"></ComboBox>
+                    <Button Width="80" Height="40" Margin="5" FontSize="18" Content="定位" Command="{mvvm:ActionAuto StartMoveAction}"></Button>
                 </StackPanel>
             </StackPanel>
         </Grid>
@@ -39,7 +51,12 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <sxj:MessagePrintControl MsgText="{Binding Msg}"></sxj:MessagePrintControl>
-
+            <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Label Content="X:"></Label>
+                    <Label Content="{Binding X_Position.Value}"></Label>
+                </StackPanel>
+            </Grid>
         </Grid>
 
     </Grid>

@@ -22,8 +22,15 @@ namespace Omicron.ViewModel
         public virtual string Msg { set; get; } = "";
         public virtual TwinCATCoil1 Home_Start { set; get; }
         public virtual TwinCATCoil1 Home_Finish { set; get; }
+        public virtual TwinCATCoil1 Move_Finish { set; get; }
         public virtual TwinCATCoil1 FuncNum { set; get; }
         public virtual TwinCATCoil1 BeckhoffConnect { set; get; }
+        public virtual TwinCATCoil1 X_Position { set; get; }
+        public virtual TwinCATCoil1 Axis1_Error { set; get; }
+        public virtual TwinCATCoil1 Reset_Start { set; get; }
+        public virtual TwinCATCoil1 Move_Start { set; get; }
+        public virtual short[] PositionComboBox { set; get; } = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        public virtual int PositionComboBoxSelectedIndex { set; get; } = 0;
         private MessagePrint messagePrint = new MessagePrint();
         private dialog mydialog = new dialog();
         TwinCATAds _TwinCATAds = new TwinCATAds();
@@ -32,8 +39,13 @@ namespace Omicron.ViewModel
         {
             Home_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
             Home_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            Move_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
             FuncNum = new TwinCATCoil1(new TwinCATCoil("MAIN.FuncNum", typeof(short), TwinCATCoil.Mode.Notice), _TwinCATAds);
             BeckhoffConnect = new TwinCATCoil1(new TwinCATCoil("MAIN.BeckhoffConnect", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            X_Position = new TwinCATCoil1(new TwinCATCoil("MAIN.X_Position", typeof(float), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            Axis1_Error = new TwinCATCoil1(new TwinCATCoil("MAIN.Axis1_Error", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            Reset_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Reset_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            Move_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
             _TwinCATAds.StartNotice();
             //UIUpdate();
             
@@ -69,9 +81,21 @@ namespace Omicron.ViewModel
         }
         public void StartHomeAction()
         {
-            //Home_Start.Value = true;
+            Home_Start.Value = !((bool)Home_Start.Value);
         }
+        public async void ResetAction()
+        {
+            Reset_Start.Value = true;
+            await Task.Delay(100);
+            Reset_Start.Value = false;
+        }
+        public async void StartMoveAction()
+        {
 
+            FuncNum.Value = PositionComboBox[PositionComboBoxSelectedIndex];
+   
+            
+        }
 
         [Export(MEF.Contracts.ActionMessage)]
         [ExportMetadata(MEF.Key, "winclose")]

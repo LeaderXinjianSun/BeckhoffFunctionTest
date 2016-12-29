@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>F:\sxj\BeckhoffFunctionTest\Beckhoff\20161227.pro</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2016-12-29T09:09:39</ChangeDate>
+		<ChangeDate>2016-12-29T12:14:28</ChangeDate>
 		<Library>
 			<Name>TcBase.lib</Name>
 			<Path>C:\TWINCAT\PLC\LIB\TcBase.lib</Path>
@@ -10495,7 +10495,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="101287A8" Crc32="2175532654" LastChange="2016-12-29T09:09:39">MAIN</Name>
+			<Name Decoration="1017B89D" Crc32="0938225035" LastChange="2016-12-29T12:14:28">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>494</CodeIndex>
 				<Symbol>
@@ -10506,6 +10506,9 @@
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.R1</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.SetP1</Name>
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.Move1</Name>
@@ -10526,6 +10529,9 @@
 					<Name>MAIN.Reset_Start</Name>
 				</Symbol>
 				<Symbol>
+					<Name>MAIN.SetP_Start</Name>
+				</Symbol>
+				<Symbol>
 					<Name>MAIN.FuncNum</Name>
 				</Symbol>
 				<Symbol>
@@ -10544,10 +10550,19 @@
 					<Name>MAIN.start_t1_flag</Name>
 				</Symbol>
 				<Symbol>
-					<Name>MAIN.AxisState</Name>
+					<Name>MAIN.ErrorCode</Name>
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.BeckhoffConnect</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.X_Position</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.Axis1_Error</Name>
+				</Symbol>
+				<Symbol>
+					<Name>MAIN.AxisVelocity</Name>
 				</Symbol>
 				<Symbol>
 					<Name>MAIN.Position_x</Name>
@@ -10578,6 +10593,13 @@
 			<BitSize>1264</BitSize>
 		</Symbol>
 		<Symbol>
+			<Name TaskPrio="1">MAIN.SetP1</Name>
+			<Type Decoration="100E0995">MC_SetPosition</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4557</IOffset>
+			<BitSize>1488</BitSize>
+		</Symbol>
+		<Symbol>
 			<Name TaskPrio="1">MAIN.Move1</Name>
 			<Type Decoration="10137A50">MC_MoveAbsolute</Type>
 			<IGroup>16448</IGroup>
@@ -10604,14 +10626,6 @@
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">1024</IOffset>
 			<BitSize>1</BitSize>
-			<Properties>
-				<Property>
-					<Name>LinkedWith</Name>
-					<Value>
-						<![CDATA[TIID^Device 2 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL1889)^Channel 1^Input]]>
-					</Value>
-				</Property>
-			</Properties>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.Home_Finish</Name>
@@ -10625,6 +10639,13 @@
 			<Type>BOOL</Type>
 			<IGroup>16448</IGroup>
 			<IOffset>4547</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.SetP_Start</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4548</IOffset>
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
@@ -10670,10 +10691,10 @@
 			<BitSize>8</BitSize>
 		</Symbol>
 		<Symbol>
-			<Name TaskPrio="1">MAIN.AxisState</Name>
+			<Name TaskPrio="1">MAIN.ErrorCode</Name>
 			<Type>DWORD</Type>
 			<IGroup>16448</IGroup>
-			<IOffset>4548</IOffset>
+			<IOffset>4553</IOffset>
 			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
@@ -10682,6 +10703,27 @@
 			<IGroup>16448</IGroup>
 			<IOffset>4552</IOffset>
 			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.X_Position</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4743</IOffset>
+			<BitSize>32</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name TaskPrio="1">MAIN.Axis1_Error</Name>
+			<Type>BOOL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4549</IOffset>
+			<BitSize>8</BitSize>
+		</Symbol>
+		<Symbol>
+			<Name Persistent="1" TaskPrio="1">MAIN.AxisVelocity</Name>
+			<Type>REAL</Type>
+			<IGroup>16448</IGroup>
+			<IOffset>4747</IOffset>
+			<BitSize>32</BitSize>
 		</Symbol>
 		<Symbol>
 			<Name Persistent="1" TaskPrio="1">MAIN.Position_x</Name>
@@ -11818,14 +11860,6 @@
 			<IGroup>61488</IGroup>
 			<IOffset VarConfig="Changeable">0</IOffset>
 			<BitSize>1024</BitSize>
-			<Properties>
-				<Property>
-					<Name>LinkedWith</Name>
-					<Value>
-						<![CDATA[TINC^NC-Task 1 SAF^Axes^Axis 1^Inputs^Axis 1_FromPlc]]>
-					</Value>
-				</Property>
-			</Properties>
 		</VarConfig>
 		<VarConfig>
 			<Name Static="Input" TaskPrio="1">.Axis1.NcToPlc</Name>
@@ -11833,14 +11867,6 @@
 			<IGroup>61472</IGroup>
 			<IOffset VarConfig="Changeable">0</IOffset>
 			<BitSize>1024</BitSize>
-			<Properties>
-				<Property>
-					<Name>LinkedWith</Name>
-					<Value>
-						<![CDATA[TINC^NC-Task 1 SAF^Axes^Axis 1^Outputs^Axis 1_ToPlc]]>
-					</Value>
-				</Property>
-			</Properties>
 		</VarConfig>
 	</VarConfigs>
 </PlcProjectInfo>
