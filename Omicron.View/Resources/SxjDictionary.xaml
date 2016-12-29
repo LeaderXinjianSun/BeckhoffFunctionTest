@@ -8,7 +8,7 @@
     </Style>
     <Style TargetType="Ellipse" BasedOn="{StaticResource EllipseStatusBase}" x:Key="PLCConnectStatus">
         <Style.Triggers>
-            <DataTrigger Binding="{Binding Home_Finish_Value}" Value="true">
+            <DataTrigger Binding="{Binding BeckhoffConnect.Value}" Value="true">
                 <Setter Property="Fill" Value="Green"></Setter>
             </DataTrigger>
         </Style.Triggers>
