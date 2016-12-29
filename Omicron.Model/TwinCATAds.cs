@@ -71,6 +71,7 @@ namespace Omicron.Model
             }
             mTwinCATCoil.CoilUpdate += mTwinCATCoil_CoilUpdate;
         }
+        //往TwinCAT写入数值
         private void mTwinCATCoil_CoilUpdate(object sender, EventArgs e)
         {
             try
@@ -231,6 +232,7 @@ namespace Omicron.Model
                 }
             }
         }
+        //Notice读取值
         private void adsClient_AdsNotificationEx(object sender, AdsNotificationExEventArgs e)
         {
             TwinCATCoil temp = (TwinCATCoil)e.UserData;
