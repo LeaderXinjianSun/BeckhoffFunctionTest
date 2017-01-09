@@ -4,7 +4,7 @@
 	<ProjectInfo>
 		<Path>D:\工作\WorkwithGit\倍福功能验证\BeckhoffFunctionTest\Beckhoff\20161227.pro</Path>
 		<IsLibrary>false</IsLibrary>
-		<ChangeDate>2016-12-29T14:46:02</ChangeDate>
+		<ChangeDate>2016-12-30T11:39:16</ChangeDate>
 		<Library>
 			<Name>TcBase.lib</Name>
 			<Path>C:\TwinCAT\PLC\LIB\TcBase.lib</Path>
@@ -8109,32 +8109,6 @@
 	</DataTypes>
 	<Functions>
 		<Function>
-			<Name Decoration="1004D2D0" IsDefinedInLibrary="1" Library="">PRINTF</Name>
-			<FunInfo>
-				<CodeIndex>495</CodeIndex>
-				<ReturnValue>
-					<Name IsDefinedInLibrary="1" Library="">PRINTF</Name>
-					<Type Decoration="40000051">STRING(80)</Type>
-					<BitSize>648</BitSize>
-				</ReturnValue>
-				<FunParameter>
-					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="">stFormat</Name>
-					<Type Decoration="40000051">STRING(80)</Type>
-					<BitSize>648</BitSize>
-				</FunParameter>
-				<FunParameter>
-					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="">dwValue</Name>
-					<Type Pointer="1">BYTE</Type>
-					<BitSize>32</BitSize>
-				</FunParameter>
-				<FunParameter>
-					<Name FunParameter="Input" IsDefinedInLibrary="1" Library="">nType</Name>
-					<Type>INT</Type>
-					<BitSize>16</BitSize>
-				</FunParameter>
-			</FunInfo>
-		</Function>
-		<Function>
 			<Name Decoration="1004519E" IsDefinedInLibrary="1" Library="C:\TwinCAT\PLC\LIB\TcBase.lib">FW_AdsLogDINT</Name>
 			<FunInfo>
 				<CodeIndex>19</CodeIndex>
@@ -10521,7 +10495,7 @@
 	</Functions>
 	<Programs>
 		<Program>
-			<Name Decoration="1017B89D" Crc32="0938225035" LastChange="2016-12-29T14:46:02">MAIN</Name>
+			<Name Decoration="1017B89D" Crc32="0938225035" LastChange="2016-12-30T11:39:16">MAIN</Name>
 			<PrgInfo>
 				<CodeIndex>494</CodeIndex>
 				<Symbol>
@@ -10652,6 +10626,14 @@
 			<IGroup>61473</IGroup>
 			<IOffset VarConfig="Changeable">1024</IOffset>
 			<BitSize>1</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TIID^Device 3 (EtherCAT)^Term 1 (EK1100)^Term 2 (EL1889)^Channel 1^Input]]>
+					</Value>
+				</Property>
+			</Properties>
 		</Symbol>
 		<Symbol>
 			<Name TaskPrio="1">MAIN.Home_Finish</Name>
@@ -10776,7 +10758,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_RTIME</Name>
 			<Type>UINT</Type>
 			<Comment>
-				<![CDATA[R0 Real time]]>
+				<![CDATA[R0 REAL TIME]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>624</IOffset>
@@ -10786,7 +10768,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R0_IO</Name>
 			<Type>UINT</Type>
 			<Comment>
-				<![CDATA[I/O Driver]]>
+				<![CDATA[I/O DRIVER]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>626</IOffset>
@@ -10887,7 +10869,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R3_SYSSERV</Name>
 			<Type>UINT</Type>
 			<Comment>
-				<![CDATA[System Service]]>
+				<![CDATA[SYSTEM SERVICE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>654</IOffset>
@@ -10897,7 +10879,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.AMSPORT_R3_SCOPESERVER</Name>
 			<Type>UINT</Type>
 			<Comment>
-				<![CDATA[Ads states]]>
+				<![CDATA[ADS STATES]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>656</IOffset>
@@ -11026,7 +11008,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSSTATE_MAXSTATES</Name>
 			<Type>UINT</Type>
 			<Comment>
-				<![CDATA[max. number of available ads states]]>
+				<![CDATA[MAX. NUMBER OF AVAILABLE ADS STATES]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>692</IOffset>
@@ -11127,7 +11109,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_SYMNOTE</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[notification OF named handle]]>
+				<![CDATA[NOTIFICATION OF NAMED HANDLE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>746</IOffset>
@@ -11137,7 +11119,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWIB</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read/write input BYTE(S)]]>
+				<![CDATA[READ/WRITE INPUT BYTE(S)]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>750</IOffset>
@@ -11147,7 +11129,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWIX</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read/write input bit]]>
+				<![CDATA[READ/WRITE INPUT BIT]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>754</IOffset>
@@ -11157,7 +11139,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RISIZE</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read input size (in BYTE)]]>
+				<![CDATA[READ INPUT SIZE (IN BYTE)]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>758</IOffset>
@@ -11167,7 +11149,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWOB</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read/write output BYTE(S)]]>
+				<![CDATA[READ/WRITE OUTPUT BYTE(S)]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>762</IOffset>
@@ -11177,7 +11159,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWOX</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read/write output bit]]>
+				<![CDATA[READ/WRITE OUTPUT BIT]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>766</IOffset>
@@ -11187,7 +11169,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_ROSIZE</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read/write output bit]]>
+				<![CDATA[READ/WRITE OUTPUT BIT]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>770</IOffset>
@@ -11197,7 +11179,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_CLEARI</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[write inputs TO null]]>
+				<![CDATA[WRITE INPUTS TO NULL]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>774</IOffset>
@@ -11207,7 +11189,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_CLEARO</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[write outputs TO null]]>
+				<![CDATA[WRITE OUTPUTS TO NULL]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>778</IOffset>
@@ -11217,7 +11199,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_IOIMAGE_RWIOB</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[read input AND write output BYTE(S)  ADS-READWRITE]]>
+				<![CDATA[READ INPUT AND WRITE OUTPUT BYTE(S)  ADS-READWRITE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>782</IOffset>
@@ -11227,7 +11209,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIGRP_DEVICE_DATA</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[state, name, etc...]]>
+				<![CDATA[STATE, NAME, ETC...]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>786</IOffset>
@@ -11237,7 +11219,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIOFFS_DEVDATA_ADSSTATE</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[ads state OF device]]>
+				<![CDATA[ADS STATE OF DEVICE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>790</IOffset>
@@ -11247,7 +11229,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSIOFFS_DEVDATA_DEVSTATE</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[device state]]>
+				<![CDATA[DEVICE STATE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>794</IOffset>
@@ -11425,7 +11407,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSERVICE_CHANGENETID</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[System service index offsets: SYSTEMSERVICE_TIMESERVICES]]>
+				<![CDATA[SYSTEM SERVICE INDEX OFFSETS: SYSTEMSERVICE_TIMESERVICES]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>894</IOffset>
@@ -11463,7 +11445,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TIMESERVICE_TIMEZONINFORMATION</Name>
 			<Type>UDINT</Type>
 			<Comment>
-				<![CDATA[ADSLOGxxx log control mask types]]>
+				<![CDATA[ADSLOGXXX LOG CONTROL MASK TYPES]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>914</IOffset>
@@ -11515,7 +11497,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.ADSLOG_MSGTYPE_STRING</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA[boot data constants (-> SYSTEMINFOTYPE.bootDataFlags)]]>
+				<![CDATA[BOOT DATA CONSTANTS (-> SYSTEMINFOTYPE.BOOTDATAFLAGS)]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>942</IOffset>
@@ -11553,7 +11535,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.BOOTDATAFLAGS_PERSISTENT_INVALID</Name>
 			<Type>BYTE</Type>
 			<Comment>
-				<![CDATA[system state constants (-> SYSTEMINFOTYPE.systemStateFlags)]]>
+				<![CDATA[SYSTEM STATE CONSTANTS (-> SYSTEMINFOTYPE.SYSTEMSTATEFLAGS)]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>950</IOffset>
@@ -11563,7 +11545,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSTATEFLAGS_BSOD</Name>
 			<Type>BYTE</Type>
 			<Comment>
-				<![CDATA[blue screen of death]]>
+				<![CDATA[BLUE SCREEN OF DEATH]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>951</IOffset>
@@ -11573,7 +11555,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.SYSTEMSTATEFLAGS_RTVIOLATION</Name>
 			<Type>BYTE</Type>
 			<Comment>
-				<![CDATA[realtime violation - latency time]]>
+				<![CDATA[REALTIME VIOLATION - LATENCY TIME]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>952</IOffset>
@@ -11583,7 +11565,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.FOPEN_MODEREAD</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA["r": Opens for reading. If the file does not exist or cannot be found, the call fails.]]>
+				<![CDATA["R": OPENS FOR READING. IF THE FILE DOES NOT EXIST OR CANNOT BE FOUND, THE CALL FAILS.]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>953</IOffset>
@@ -11593,7 +11575,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.FOPEN_MODEWRITE</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA["w": Opens an empty file for writing. If the given file exists, its contents are destroyed.]]>
+				<![CDATA["W": OPENS AN EMPTY FILE FOR WRITING. IF THE GIVEN FILE EXISTS, ITS CONTENTS ARE DESTROYED.]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>957</IOffset>
@@ -11603,7 +11585,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.FOPEN_MODEAPPEND</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA["a": Opens for writing at the end of the file (appending) without removing the EOF marker before writing new data to the file; creates the file first if it doesn抰 exist.]]>
+				<![CDATA["A": OPENS FOR WRITING AT THE END OF THE FILE (APPENDING) WITHOUT REMOVING THE EOF MARKER BEFORE WRITING NEW DATA TO THE FILE; CREATES THE FILE FIRST IF IT DOESN抰 EXIST.]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>961</IOffset>
@@ -11613,7 +11595,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.FOPEN_MODEPLUS</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA["+": Opens for reading and writing]]>
+				<![CDATA["+": OPENS FOR READING AND WRITING]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>965</IOffset>
@@ -11623,7 +11605,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.FOPEN_MODEBINARY</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA["b": Open in binary (untranslated) mode.]]>
+				<![CDATA["B": OPEN IN BINARY (UNTRANSLATED) MODE.]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>969</IOffset>
@@ -11633,7 +11615,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.FOPEN_MODETEXT</Name>
 			<Type>DWORD</Type>
 			<Comment>
-				<![CDATA["t": Open in text (translated) mode.]]>
+				<![CDATA["T": OPEN IN TEXT (TRANSLATED) MODE.]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>973</IOffset>
@@ -11695,7 +11677,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTFLAG_PRIOCLASS</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event class/priority	through textformatter]]>
+				<![CDATA[EVENT CLASS/PRIORITY	THROUGH TEXTFORMATTER]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1005</IOffset>
@@ -11705,7 +11687,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTFLAG_FMTSELF</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[format in message]]>
+				<![CDATA[FORMAT IN MESSAGE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1007</IOffset>
@@ -11715,7 +11697,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTFLAG_LOG</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[write to log file]]>
+				<![CDATA[WRITE TO LOG FILE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1009</IOffset>
@@ -11725,7 +11707,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTFLAG_MSGBOX</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[display message box]]>
+				<![CDATA[DISPLAY MESSAGE BOX]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1011</IOffset>
@@ -11735,7 +11717,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTFLAG_SRCID</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[src id instead of source name]]>
+				<![CDATA[SRC ID INSTEAD OF SOURCE NAME]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1013</IOffset>
@@ -11745,7 +11727,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTFLAG_AUTOFMTALL</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event states]]>
+				<![CDATA[EVENT STATES]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1015</IOffset>
@@ -11755,7 +11737,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTSTATE_INVALID</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event object is not initialized]]>
+				<![CDATA[EVENT OBJECT IS NOT INITIALIZED]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1017</IOffset>
@@ -11765,7 +11747,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTSTATE_SIGNALED</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event object is in a signaled state]]>
+				<![CDATA[EVENT OBJECT IS IN A SIGNALED STATE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1019</IOffset>
@@ -11775,7 +11757,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTSTATE_RESET</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event object is in a reset state]]>
+				<![CDATA[EVENT OBJECT IS IN A RESET STATE]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1021</IOffset>
@@ -11785,7 +11767,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTSTATE_CONFIRMED</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event object is confirmed but not reset]]>
+				<![CDATA[EVENT OBJECT IS CONFIRMED BUT NOT RESET]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1023</IOffset>
@@ -11795,7 +11777,7 @@
 			<Name Constant="1" IsDefinedInLibrary="1">.TCEVENTSTATE_RESETCON</Name>
 			<Type>WORD</Type>
 			<Comment>
-				<![CDATA[event object is confirmed and reset]]>
+				<![CDATA[EVENT OBJECT IS CONFIRMED AND RESET]]>
 			</Comment>
 			<IGroup>16448</IGroup>
 			<IOffset>1025</IOffset>
@@ -11886,6 +11868,14 @@
 			<IGroup>61488</IGroup>
 			<IOffset VarConfig="Changeable">0</IOffset>
 			<BitSize>1024</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TINC^NC-Task 1 SAF^Axes^Axis 1^Inputs^Axis 1_FromPlc]]>
+					</Value>
+				</Property>
+			</Properties>
 		</VarConfig>
 		<VarConfig>
 			<Name Static="Input" TaskPrio="1">.Axis1.NcToPlc</Name>
@@ -11893,6 +11883,14 @@
 			<IGroup>61472</IGroup>
 			<IOffset VarConfig="Changeable">0</IOffset>
 			<BitSize>1024</BitSize>
+			<Properties>
+				<Property>
+					<Name>LinkedWith</Name>
+					<Value>
+						<![CDATA[TINC^NC-Task 1 SAF^Axes^Axis 1^Outputs^Axis 1_ToPlc]]>
+					</Value>
+				</Property>
+			</Properties>
 		</VarConfig>
 	</VarConfigs>
 </PlcProjectInfo>
