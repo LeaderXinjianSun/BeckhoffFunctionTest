@@ -19,6 +19,7 @@ namespace Omicron.ViewModel
     {
         public virtual string AboutPageVisibility { set; get; } = "Collapsed";
         public virtual string HomePageVisibility { set; get; } = "Visible";
+        public virtual string AxisDebugPageVisibility { set; get; } = "Collapsed";
         public virtual string Msg { set; get; } = "";
         public virtual TwinCATCoil1 Home_Start { set; get; }
         public virtual TwinCATCoil1 Home_Finish { set; get; }
@@ -39,19 +40,19 @@ namespace Omicron.ViewModel
         #region 构造函数
         public MainDataContext()
         {
-            Home_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            Home_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            Move_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            FuncNum = new TwinCATCoil1(new TwinCATCoil("MAIN.FuncNum", typeof(short), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            BeckhoffConnect = new TwinCATCoil1(new TwinCATCoil("MAIN.BeckhoffConnect", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            X_Position = new TwinCATCoil1(new TwinCATCoil("MAIN.X_Position", typeof(float), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            Axis1_Error = new TwinCATCoil1(new TwinCATCoil("MAIN.Axis1_Error", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            Reset_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Reset_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            Move_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
-            _TwinCATAds.StartNotice();
+            //Home_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //Home_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Home_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //Move_Finish = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Finish", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //FuncNum = new TwinCATCoil1(new TwinCATCoil("MAIN.FuncNum", typeof(short), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //BeckhoffConnect = new TwinCATCoil1(new TwinCATCoil("MAIN.BeckhoffConnect", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //X_Position = new TwinCATCoil1(new TwinCATCoil("MAIN.X_Position", typeof(float), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //Axis1_Error = new TwinCATCoil1(new TwinCATCoil("MAIN.Axis1_Error", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //Reset_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Reset_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //Move_Start = new TwinCATCoil1(new TwinCATCoil("MAIN.Move_Start", typeof(bool), TwinCATCoil.Mode.Notice), _TwinCATAds);
+            //_TwinCATAds.StartNotice();
             //UIUpdate();
-            WaitNet();
-            CommandFromRemote();
+            //WaitNet();
+            //CommandFromRemote();
 
         }
         #endregion
@@ -100,12 +101,20 @@ namespace Omicron.ViewModel
         {
             AboutPageVisibility = "Collapsed";
             HomePageVisibility = "Visible";
+            AxisDebugPageVisibility = "Collapsed";
             //Msg = messagePrint.AddMessage("111");          
         }
         public void ChoseAboutPage()
         {
             AboutPageVisibility = "Visible";
             HomePageVisibility = "Collapsed";
+            AxisDebugPageVisibility = "Collapsed";
+        }
+        public void ChooseAxisDebugPage()
+        {
+            AboutPageVisibility = "Collapsed";
+            HomePageVisibility = "Collapsed";
+            AxisDebugPageVisibility = "Visible";
         }
         public void StartHomeAction()
         {
@@ -117,28 +126,28 @@ namespace Omicron.ViewModel
             await Task.Delay(100);
             Reset_Start.Value = false;
         }
-        public async void StartMoveAction()
-        {
+        //public async void StartMoveAction()
+        //{
 
-            FuncNum.Value = PositionComboBox[PositionComboBoxSelectedIndex];
+        //    FuncNum.Value = PositionComboBox[PositionComboBoxSelectedIndex];
    
             
-        }
+        //}
 
-        [Export(MEF.Contracts.ActionMessage)]
-        [ExportMetadata(MEF.Key, "winclose")]
-        public async void WindowClose()
-        {
-            mydialog.changeaccent("Red");
-            var r = await mydialog.showconfirm("确定要关闭程序吗？");
-            if (r)
-            {
-                System.Windows.Application.Current.Shutdown();
-            }
-            else
-            {
-                mydialog.changeaccent("Cobalt");
-            }
-        }
+        //[Export(MEF.Contracts.ActionMessage)]
+        //[ExportMetadata(MEF.Key, "winclose")]
+        //public async void WindowClose()
+        //{
+        //    mydialog.changeaccent("Red");
+        //    var r = await mydialog.showconfirm("确定要关闭程序吗？");
+        //    if (r)
+        //    {
+        //        System.Windows.Application.Current.Shutdown();
+        //    }
+        //    else
+        //    {
+        //        mydialog.changeaccent("Cobalt");
+        //    }
+        //}
     }
 }

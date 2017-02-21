@@ -12,25 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using MahApps.Metro.Controls;
-using BingLibrary.hjb;
 
-namespace Omicron
+namespace Omicron.View
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// AxisDebugPage.xaml 的交互逻辑
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class AxisDebugPage : UserControl
     {
-        public MainWindow()
+        public AxisDebugPage()
         {
             InitializeComponent();
         }
-
-        //private void MetroWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
-        //{
-        //    e.Cancel = true;
-        //    ActionMessages.ExecuteAction("winclose");
-        //}
     }
 }

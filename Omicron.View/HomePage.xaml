@@ -27,7 +27,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="2" Orientation="Vertical">
-                <StackPanel Orientation="Horizontal">
+                <!--<StackPanel Orientation="Horizontal">
                     <Label Width="60" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" Content="伺服报警"></Label>
                     <Ellipse Style="{StaticResource ServoAlarmStatus}"></Ellipse>
                     <Button Width="80" Height="40" Margin="5" FontSize="18" Content="复位" Command="{mvvm:ActionAuto ResetAction}"></Button>
@@ -42,7 +42,7 @@
                     <Ellipse Style="{StaticResource ServoMoveFinish}"></Ellipse>
                     <ComboBox Width="100" ItemsSource="{Binding PositionComboBox}" SelectedIndex="{Binding PositionComboBoxSelectedIndex}"></ComboBox>
                     <Button Width="80" Height="40" Margin="5" FontSize="18" Content="定位" Command="{mvvm:ActionAuto StartMoveAction}"></Button>
-                </StackPanel>
+                </StackPanel>-->
             </StackPanel>
         </Grid>
         <Grid Grid.Row="1">
@@ -52,10 +52,10 @@
             </Grid.ColumnDefinitions>
             <sxj:MessagePrintControl MsgText="{Binding Msg}"></sxj:MessagePrintControl>
             <Grid Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-                <StackPanel Orientation="Horizontal">
+                <!--<StackPanel Orientation="Horizontal">
                     <Label Content="X:"></Label>
                     <Label Content="{Binding X_Position.Value}"></Label>
-                </StackPanel>
+                </StackPanel>-->
             </Grid>
         </Grid>
 

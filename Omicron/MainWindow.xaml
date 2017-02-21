@@ -11,7 +11,7 @@
                      WindowStartupLocation="CenterScreen"
                      BorderThickness="0" GlowBrush="Black"  ResizeMode="CanResizeWithGrip" WindowTransitionsEnabled="True"
                      Icon="/icons/google_earth_64px_1099826_easyicon.net.ico" Height="768" Width="1024"
-                     Closing="MetroWindow_Closing">
+                     >
     <Grid>
         <view:MainWindowView></view:MainWindowView>
     </Grid>

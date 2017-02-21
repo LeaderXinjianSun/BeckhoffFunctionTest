@@ -1,0 +1,124 @@
+﻿<UserControl x:Class="Omicron.View.AxisDebugPage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mvvm="clr-namespace:BingLibrary.hjb;assembly=BingLibrary"
+             xmlns:local="clr-namespace:Omicron.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="768" d:DesignWidth="1024">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources/SxjDictionary.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    <Grid>
+        <TabControl>
+            <TabItem Header="1轴">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="2*"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                        <RowDefinition Height="6*"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                        <TextBlock Text="123" FontSize="40"></TextBlock>
+                        <TextBlock Text="mm" FontSize="30" VerticalAlignment="Center"></TextBlock>
+                    </StackPanel>
+                    <Grid Grid.Column="1">
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="伺服励磁：" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBlock Text="OFF" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="轴状态：" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBlock Text="Ready" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="轴报警：" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBlock Text="无" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <Button Style="{StaticResource OperationButton}" Content="励磁"></Button>
+                            <Button Style="{StaticResource OperationButton}" Content="回原点"></Button>
+                            <Button Style="{StaticResource OperationButton}" Content="报警复位"></Button>
+                            <Button Style="{StaticResource OperationButton}" Content="复位"></Button>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"></ColumnDefinition>
+                            <ColumnDefinition></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel VerticalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="点动+" Margin="5,2"></Button>
+                                <Button Content="点动-" Margin="5,2"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="点动++" Margin="5,0,5,2"></Button>
+                                <Button Content="点动--" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
+                                <Button Content="Go" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                            <StackPanel Orientation="Vertical">
+                                <Button Content="到位置1" Margin="5,2" HorizontalAlignment="Left"></Button>
+                                <Button Content="到位置2" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
+                                <Button Content="到位置3" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
+                                <Button Content="到位置4" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
+                                <Button Content="到位置5" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Column="1" Grid.Row="2">
+                        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="位置1坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="位置2坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="位置3坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="位置4坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="位置5坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                            </StackPanel>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+                
+            </TabItem>
+            <TabItem Header="2轴"></TabItem>
+            <TabItem Header="3轴"></TabItem>
+            <TabItem Header="4轴"></TabItem>
+        </TabControl>   
+    </Grid>
+</UserControl>
