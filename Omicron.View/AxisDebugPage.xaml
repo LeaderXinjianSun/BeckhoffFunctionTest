@@ -28,30 +28,26 @@
                         <ColumnDefinition></ColumnDefinition>
                     </Grid.ColumnDefinitions>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                        <TextBlock Text="123" FontSize="40"></TextBlock>
+                        <TextBlock Text="{Binding ActPos1.Value}" FontSize="40"></TextBlock>
                         <TextBlock Text="mm" FontSize="30" VerticalAlignment="Center"></TextBlock>
                     </StackPanel>
                     <Grid Grid.Column="1">
                         <StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="伺服励磁：" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBlock Text="OFF" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                            </StackPanel>
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="轴状态：" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBlock Text="Ready" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBlock Text="{Binding PowerOnStr1}" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="轴报警：" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBlock Text="无" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
+                                <TextBlock Text="{Binding ErrorStr1}" Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
-                            <Button Style="{StaticResource OperationButton}" Content="励磁"></Button>
-                            <Button Style="{StaticResource OperationButton}" Content="回原点"></Button>
-                            <Button Style="{StaticResource OperationButton}" Content="报警复位"></Button>
+                            <Button Style="{StaticResource OperationButton}" Content="励磁" Command="{mvvm:ActionAuto SevorON}"></Button>
+                            <Button Style="{StaticResource OperationButton}" Content="回原点" Command="{mvvm:ActionAuto SevorHomeAction}"></Button>
+                            <Button Style="{StaticResource OperationButton}" Content="报警复位" Command="{mvvm:ActionAuto SevorReset}"></Button>
                             <Button Style="{StaticResource OperationButton}" Content="复位"></Button>
                         </StackPanel>
                     </Grid>
@@ -62,25 +58,25 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="点动+" Margin="5,2"></Button>
-                                <Button Content="点动-" Margin="5,2"></Button>
+                                <Button Content="点动+" Margin="5,2" PreviewMouseDown="{mvvm:ActionAuto SevorJogForwardSlowStart}" PreviewMouseUp="{mvvm:ActionAuto SevorJogForwardStop}"></Button>
+                                <Button Content="点动-" Margin="5,2" PreviewMouseDown="{mvvm:ActionAuto SevorJogOppositeSlowStart}" PreviewMouseUp="{mvvm:ActionAuto SevorJogOppositeStop}"></Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <Button Content="点动++" Margin="5,0,5,2"></Button>
-                                <Button Content="点动--" Margin="5,0,5,2"></Button>
+                                <Button Content="点动++" Margin="5,0,5,2" PreviewMouseDown="{mvvm:ActionAuto SevorJogForwardFastStart}" PreviewMouseUp="{mvvm:ActionAuto SevorJogForwardStop}" ></Button>
+                                <Button Content="点动--" Margin="5,0,5,2" PreviewMouseDown="{mvvm:ActionAuto SevorJogOppositeFastStart}" PreviewMouseUp="{mvvm:ActionAuto SevorJogOppositeStop}" ></Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
-                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
-                                <Button Content="Go" Margin="5,0,5,2"></Button>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100" Text="{Binding TargetPosition1}"></TextBox>
+                                <Button Content="Go" Margin="5,0,5,2" Command="{mvvm:ActionAuto SevorPTP}"></Button>
                             </StackPanel>
                         </StackPanel>
                         <StackPanel Grid.Column="1" VerticalAlignment="Center">
                             <StackPanel Orientation="Vertical">
-                                <Button Content="到位置1" Margin="5,2" HorizontalAlignment="Left"></Button>
-                                <Button Content="到位置2" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
-                                <Button Content="到位置3" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
-                                <Button Content="到位置4" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
-                                <Button Content="到位置5" Margin="5,0,5,2" HorizontalAlignment="Left"></Button>
+                                <Button Content="到位置1" Margin="5,2" HorizontalAlignment="Left" Command="{mvvm:ActionAutoWithParam MoveToPosition}" CommandParameter="1"></Button>
+                                <Button Content="到位置2" Margin="5,0,5,2" HorizontalAlignment="Left" Command="{mvvm:ActionAutoWithParam MoveToPosition}" CommandParameter="2"></Button>
+                                <Button Content="到位置3" Margin="5,0,5,2" HorizontalAlignment="Left" Command="{mvvm:ActionAutoWithParam MoveToPosition}" CommandParameter="3"></Button>
+                                <Button Content="到位置4" Margin="5,0,5,2" HorizontalAlignment="Left" Command="{mvvm:ActionAutoWithParam MoveToPosition}" CommandParameter="4"></Button>
+                                <Button Content="到位置5" Margin="5,0,5,2" HorizontalAlignment="Left" Command="{mvvm:ActionAutoWithParam MoveToPosition}" CommandParameter="5"></Button>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
@@ -88,28 +84,28 @@
                         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="位置1坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
-                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                                <TextBox Style="{StaticResource TextBoxBase}" Text="{Binding Position1}" Width="100"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2" Command="{mvvm:ActionAutoWithParam GetPosition}" CommandParameter="1"></Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="位置2坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
-                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100" Text="{Binding Position2}"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2" Command="{mvvm:ActionAutoWithParam GetPosition}" CommandParameter="2"></Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="位置3坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
-                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100" Text="{Binding Position3}"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2" Command="{mvvm:ActionAutoWithParam GetPosition}" CommandParameter="3"></Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="位置4坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
-                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100" Text="{Binding Position4}"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2" Command="{mvvm:ActionAutoWithParam GetPosition}" CommandParameter="4"></Button>
                             </StackPanel>
                             <StackPanel Orientation="Horizontal">
                                 <TextBlock Text="位置5坐标： " Style="{StaticResource TextBlockParameterLoneName}"></TextBlock>
-                                <TextBox Style="{StaticResource TextBoxBase}" Width="100"></TextBox>
-                                <Button Content="Get" Margin="5,0,5,2"></Button>
+                                <TextBox Style="{StaticResource TextBoxBase}" Width="100" Text="{Binding Position5}"></TextBox>
+                                <Button Content="Get" Margin="5,0,5,2" Command="{mvvm:ActionAutoWithParam GetPosition}" CommandParameter="5"></Button>
                             </StackPanel>
                         </StackPanel>
                     </Grid>
